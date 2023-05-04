@@ -11,15 +11,10 @@ public class LoginDBImpl
 	{
 		ResultSet set= con.st.executeQuery("select * from login where username='"+userID+"'");
 		if(set.next())
-		{
 			return true;
-		}
-		
-		else
-		{
-			return false;
-		}
 
+		else
+			return false;
 	}
 	
 	public boolean checkPassword(String userID, String pass) throws SQLException

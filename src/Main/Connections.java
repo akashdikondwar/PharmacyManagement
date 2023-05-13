@@ -6,7 +6,7 @@ public class Connections
 	public Statement st;
 	public Connection conn;
 	
-	public Connections()
+	public Connections()// this is a constructor
 	{
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver"); //load driver

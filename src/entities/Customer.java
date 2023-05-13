@@ -11,6 +11,7 @@ public class Customer
 	private String name;
 	private long phone;
 	private String address;
+	
 	CustomerDBImpl customerdb=new CustomerDBImpl();
 	
 	Scanner sc=new Scanner(System.in);
@@ -40,6 +41,11 @@ public class Customer
 		this.address = address;
 	}
 	
+	//creating a new method to check if a customer already exist in table.
+	//the method first takes phone no. input and checks if it already exist using the method of customerdbimpl.
+	//here we are using "this" keyword for refering to current object.
+	//if already exist, it will return that customers name and address.
+	//
 	
 	public boolean checkIfCustomerExist() throws SQLException
 	{
@@ -60,7 +66,7 @@ public class Customer
 	
 	public void fetchCustomer() throws SQLException
 	{
-		if(!checkIfCustomerExist())
+		if(checkIfCustomerExist()==false)
 		{
 			System.out.println("enter new customer name:");
 			this.setName(sc.next());

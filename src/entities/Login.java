@@ -1,8 +1,6 @@
 package entities;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Scanner;
-import Main.Connections;
 import DBImple.LoginDBImpl;
 import Main.Main;
 

@@ -1,9 +1,6 @@
 package Main;
-import java.sql.*;
-import java.util.Scanner;
 
 import entities.Customer;
-import entities.Login;
 
 public class Main {
 	

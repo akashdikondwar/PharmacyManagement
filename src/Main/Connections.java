@@ -17,4 +17,9 @@ public class Connections
 			System.out.println("Connection not Established!!..");//exception is required when compiler doesn't know when the error can occur.
 		}
 	}
+	
+	public void Close() throws SQLException
+	{
+		conn.close();
+	}
 }

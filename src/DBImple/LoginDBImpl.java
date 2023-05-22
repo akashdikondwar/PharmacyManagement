@@ -1,6 +1,7 @@
 package DBImple;
 import Main.Connections;
 import java.sql.*;
+import entities.Login;
 
 public class LoginDBImpl 
 {
@@ -16,12 +17,15 @@ public class LoginDBImpl
 			return false;
 	}
 	
-	public boolean checkPassword(String userID, String pass) throws SQLException
+
+	public boolean checkPassword(String userID, String pass, Login abc) throws SQLException
 	{
 		ResultSet set=con.st.executeQuery("select * from login where username='"+userID+"' and password='"+pass+"'");
 		
 		if(set.next())
 		{
+			abc.setWork(set.getInt("work"));
+			System.out.println("..............."+abc.getWork());
 			return true;
 		}
 		

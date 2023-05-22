@@ -72,8 +72,23 @@ StockDBImpl stockDB=new StockDBImpl();
 		stockDB.addNewStock(this);
 	}
 	
-	public void sellStock(int qty, String med) throws SQLException
+	//	it returns amount of one medicine and checks qty available in stock or not
+	public int sellStock(int id, int qty) throws SQLException
 	{
-		stockDB.sellStock(med, qty);
+		return stockDB.sellStock(id, qty);
 	}
+	
+	//	gives list of medicines starting from given name 
+	public void similarMeds(String medName) throws SQLException
+	{
+		stockDB.similarMeds(medName);
+	}
+	
+	//	deducts medicine qty from stock
+	public void updateStock(int medID, int qty) throws SQLException
+	{
+		stockDB.updateStock(medID, qty);
+	}
+		
 }
+	

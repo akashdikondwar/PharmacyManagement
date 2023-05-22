@@ -43,10 +43,11 @@ public class Customer
 	
 	//creating a new method to check if a customer already exist in table.
 	//the method first takes phone no. input and checks if it already exist using the method of customerdbimpl.
-	//here we are using "this" keyword for refering to current object.
+	//here we are using "this" keyword for referring to current object.
 	//if already exist, it will return that customers name and address.
 	//
 	
+	//	checks if customer already exists in the customer table
 	public boolean checkIfCustomerExist() throws SQLException
 	{
 		System.out.println("enter phone no.");
@@ -63,8 +64,8 @@ public class Customer
 		}
 	}
 	
-	
-	public void fetchCustomer() throws SQLException
+	//	this method finds if the customer already exists in the database. if not then it asks and adds new details in the database
+	public void fetchCustomer() throws SQLException// take customer data
 	{
 		if(checkIfCustomerExist()==false)
 		{

@@ -33,7 +33,10 @@ public class Transaction
 		this.qty = qty;
 	}
 	
-	
+	public void newTransaction()
+	{
+		
+	}
 	
 	
 }

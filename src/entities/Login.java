@@ -8,6 +8,7 @@ public class Login
 {
 	private String userID;
 	private String password;
+	private int work;
 	
 	public String getUserID() {
 		return userID;
@@ -15,6 +16,12 @@ public class Login
 	public void setUserID(String userID) 
 	{
 		this.userID = userID;
+	}
+	public int getWork() {
+		return work;
+	}
+	public void setWork(int work) {
+		this.work = work;
 	}
 	public String getPassword() {
 		return password;
@@ -49,7 +56,7 @@ public class Login
 	
 	
 	
-	public void checkLoginCredentials() throws SQLException
+	public boolean checkLoginCredentials() throws SQLException
 	{
 		
 		String user = null;
@@ -61,20 +68,23 @@ public class Login
 		
 		if (dbimpl.checkUsername(user))
 		{
-			if(dbimpl.checkPassword(user, pass))
+			if(dbimpl.checkPassword(user, pass, this))
 			{
 				Main.user=user;//setting logged in user
 				System.out.println(user+" login successful");
+				return true;
 			}
 			
 			else 
 			{
 				System.out.println("incorrect credentials");
+				return false;
 			}
 		}
 		else
 		{
 			System.out.println("user not in the system");
+			return false;
 		}
 	}
 	
@@ -85,7 +95,7 @@ public class Login
 		System.out.println("enter your old password");
 		pass=sc.next();
 		
-		if(dbimpl.checkPassword(user, pass))
+		if(dbimpl.checkPassword(user, pass,this))//here after adding new password, work variable bhi change ho jayega. so check for problem
 		{
 			System.out.println("enter new password:");
 			pass=sc.next();
